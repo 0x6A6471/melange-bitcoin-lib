@@ -1,0 +1,17 @@
+(version 5.0.1-53)
+
+(build
+ (progn
+  (when
+   %{pkg-self:dev}
+   (run dune subst))
+  (run dune build -p %{pkg-self:name} -j %{jobs} @install)))
+
+(depends dune ocaml cmdliner dune-build-info cppo ppxlib menhir)
+
+(source
+ (fetch
+  (url
+   https://github.com/melange-re/melange/releases/download/5.0.1-53/melange-5.0.1-53.tbz)
+  (checksum
+   sha256=abb26e01e5439cb0c7c41f62411441816af7c7c18a9e0800063c3d4df4da8fec)))

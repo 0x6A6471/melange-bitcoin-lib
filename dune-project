@@ -1,26 +1,26 @@
 (lang dune 3.18)
 
+(using melange 0.1)
+
 (name melange-bitcoin-lib)
 
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github 0x6A6471/melange-bitcoin-lib))
 
-(authors "Author Name <author@example.com>")
+(authors "0x6A6471 <0x6A6471@proton.me>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
-
-(license LICENSE)
-
-(documentation https://url/to/documentation)
+(maintainers "0x6A6471 <0x6A6471@proton.me>")
 
 (package
  (name melange-bitcoin-lib)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune)
+ (depends 
+   ocaml dune melange
+   ;; dev tools
+   ocamlformat ocaml-lsp-server)
  (tags
-  ("add topics" "to describe" your project)))
+  ("bitcion")))
 
-; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

@@ -1,0 +1,6 @@
+(library
+  (name melange_bitcoin_lib)
+  (public_name melange-bitcoin-lib)
+  (modes melange)
+  (preprocess
+    (pps melange.ppx)))

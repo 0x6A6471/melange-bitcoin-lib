@@ -1,4 +1,0 @@
-(executable
- (public_name melange-bitcoin-lib)
- (name main)
- (libraries melange_bitcoin_lib))
