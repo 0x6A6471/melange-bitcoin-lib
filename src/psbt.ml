@@ -23,4 +23,4 @@ let default_opts = { network = None; maximum_fee_rate = None }
 external fromHex : string -> ?psbt_opts:psbt_opts -> unit -> t = "fromHex"
 [@@mel.module "bitcoinjs-lib"] [@@mel.scope "Psbt"]
 
-external getTxOutputs : t -> psbt_tx_output array = "txOutputs" [@@mel.get]
+external getTxOutputs : t -> psbt_tx_output list = "txOutputs" [@@mel.get]
