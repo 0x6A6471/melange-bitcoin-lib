@@ -5,8 +5,6 @@
  *
  * Additional information on address prefixes can be found here:
  * - https://en.bitcoin.it/wiki/List_of_address_prefixes
- *
- * @packageDocumentation
  *)
 type bip32 = { public : int; private_ : int }
 
