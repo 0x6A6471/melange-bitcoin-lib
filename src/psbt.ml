@@ -10,7 +10,7 @@ type psbt_tx_input = { hash : bytes; index : int; sequence : int option }
 type transaction_output = { script : Js.uint8Array; value : Js.bigint }
 
 type psbt_tx_output = {
-  script : Js.uint8Array;
+  script : Js.Typed_array.Uint8Array.t;
   value : Js.bigint;
   address : string option;
 }
