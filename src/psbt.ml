@@ -16,7 +16,11 @@ type psbt_tx_output = {
 }
 
 type t
-type psbt_opts = { network : Network.t option; maximum_fee_rate : float option }
+
+type psbt_opts = {
+  network : Networks.t option;
+  maximum_fee_rate : float option;
+}
 
 let default_opts = { network = None; maximum_fee_rate = None }
 
