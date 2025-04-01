@@ -1,14 +1,22 @@
+type bip32 = private {
+  public : int; [@mel.as "public"]
+  private_ : int; [@mel.as "private"]
+}
+
 type t = {
-  message_prefix : string;
+  message_prefix : string; [@mel.as "messagePrefix"]
   bech32 : string;
   bip32 : bip32;
-  pub_key_hash : int;
-  script_hash : int;
+  pub_key_hash : int; [@mel.as "pubKeyHash"]
+  script_hash : int; [@mel.as "scriptHash"]
   wif : int;
 }
 
-and bip32
+external mainnet : t = "bitcoin"
+[@@mel.module "bitcoinjs-lib"] [@@mel.scope "networks"]
 
-val mainnet : t
-val testnet : t
-val regtest : t
+external testnet : t = "testnet"
+[@@mel.module "bitcoinjs-lib"] [@@mel.scope "networks"]
+
+external regtest : t = "regtest"
+[@@mel.module "bitcoinjs-lib"] [@@mel.scope "networks"]
