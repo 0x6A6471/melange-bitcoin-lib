@@ -1,6 +1,27 @@
+type input_output_counts = { inputCount : int; outputCount : int }
+
+type 'a transaction = {
+  getInputOutputCounts : unit -> input_output_counts;
+  addInput : 'a -> unit;
+  addOutput : 'a -> unit;
+  toBuffer : unit -> Js.Typed_array.Uint8Array.t;
+}
+
 type key_value = {
   key : Js.Typed_array.Uint8Array.t;
   value : Js.Typed_array.Uint8Array.t;
+}
+
+type global_xpub = {
+  extendedPubkey : Js.Typed_array.Uint8Array.t;
+  masterFingerprint : Js.Typed_array.Uint8Array.t;
+  path : string;
+}
+
+type 'a psbt_global = {
+  unsignedTx : 'a transaction;
+  unkownKeyVals : key_value array option;
+  globalXpub : global_xpub array option;
 }
 
 type partial_sig = {
@@ -26,13 +47,13 @@ type tap_bip32_derivation = {
   leafHashes : Js.Typed_array.Uint8Array.t array;
 }
 
+type tap_script = { leafVersion : int; script : Js.Typed_array.Uint8Array.t }
+
 type tap_script_sig = {
   pubkey : Js.Typed_array.Uint8Array.t;
   signature : Js.Typed_array.Uint8Array.t;
   leafHash : Js.Typed_array.Uint8Array.t;
 }
-
-type tap_script = { leafVersion : int; script : Js.Typed_array.Uint8Array.t }
 
 type tap_leaf_script = {
   leafVersion : int;
@@ -74,27 +95,6 @@ type psbt_output = {
   bip32Derivation : bip32_derivation array option;
   tapTree : tap_tree option;
   tapInternalKey : Js.Typed_array.Uint8Array.t option;
-}
-
-type input_output_counts = { inputCount : int; outputCount : int }
-
-type 'a transaction = {
-  getInputOutputCounts : unit -> input_output_counts;
-  addInput : 'a -> unit;
-  addOutput : 'a -> unit;
-  toBuffer : unit -> Js.Typed_array.Uint8Array.t;
-}
-
-type global_xpub = {
-  extendedPubkey : Js.Typed_array.Uint8Array.t;
-  masterFingerprint : Js.Typed_array.Uint8Array.t;
-  path : string;
-}
-
-type 'a psbt_global = {
-  unsignedTx : 'a transaction;
-  unkownKeyVals : key_value array option;
-  globalXpub : global_xpub array option;
 }
 
 type 'a data = {
