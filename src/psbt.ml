@@ -15,16 +15,10 @@ type psbt_tx_output = {
   value : Js.bigint;
 }
 
-type t
+type t = Bip174.t
 
-type psbt_opts = {
-  network : Networks.t option;
-  maximum_fee_rate : float option; [@mel.as "maximumFeeRate"]
-}
-
-let default_opts = { network = None; maximum_fee_rate = None }
-
-external fromHex : string -> ?psbt_opts:psbt_opts -> unit -> t = "fromHex"
+external fromHex : string -> ?psbt_opts:Types.Psbt.psbt_opts -> unit -> t
+  = "fromHex"
 [@@mel.module "bitcoinjs-lib"] [@@mel.scope "Psbt"]
 
 external getTxInputs : t -> psbt_tx_input array = "txInputs" [@@mel.get]
