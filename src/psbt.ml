@@ -20,6 +20,10 @@ type psbt_tx_output = {
 
 type 'a t = 'a Bip174.t
 
+external fromBase64 : string -> ?psbt_opts:Types.Psbt.psbt_opts -> unit -> 'a t
+  = "fromBase64"
+[@@mel.module "bitcoinjs-lib"] [@@mel.scope "Psbt"]
+
 external fromHex : string -> ?psbt_opts:Types.Psbt.psbt_opts -> unit -> 'a t
   = "fromHex"
 [@@mel.module "bitcoinjs-lib"] [@@mel.scope "Psbt"]
