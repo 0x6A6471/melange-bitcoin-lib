@@ -11,7 +11,7 @@ pin `melange-bitcoin-lib` inside your `dune-project` file:
 
 ```lisp
 (pin
- (url "git+https://github.com/0x6A6471/melange-bitcion-lib")
+ (url "git+https://github.com/0x6A6471/melange-bitcoin-lib")
  (package (name melange-bitcoin-lib)))
 ```
 
